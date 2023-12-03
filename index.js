@@ -7,7 +7,7 @@ const cors = require('cors');
 
 
 const app = express();
-const PORT = 3001;
+const PORT = 8000;
 
 app.use(cors()); 
 app.use(express.json());
@@ -19,13 +19,13 @@ app.get('/', (req, res) => {
 });
 
 app.post('/createpost', async (req, res) => {
-  const tweet = req.body.text;
+  const tweet = req.body.text; 
   const response = await createPost(tweet);
   res.json(response.data);
 });
 
 const createPost = async (tweet) => {
-  const data = JSON.stringify({
+    const data = JSON.stringify({
     "text": `${tweet}`
   });
 
@@ -35,7 +35,7 @@ const createPost = async (tweet) => {
     url: 'https://api.twitter.com/2/tweets',
     headers: { 
         'Content-Type': 'application/json', 
-        'Authorization': 'OAuth oauth_consumer_key="Ay0dvrzdqdIBTAX02PGetpvyZ",oauth_token="1730713826360987648-qP3FN0gNXlVxQZi9OQgAQ6gD928JE0",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1701508725",oauth_nonce="sImzDAkURoC",oauth_version="1.0",oauth_signature="viIbaOxyfAYJbIlod2ZQ3yUML2k%3D"', 
+        'Authorization': 'OAuth oauth_consumer_key="Ay0dvrzdqdIBTAX02PGetpvyZ",oauth_token="1730713826360987648-qP3FN0gNXlVxQZi9OQgAQ6gD928JE0",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1701603997",oauth_nonce="88lAeWDVnxb",oauth_version="1.0",oauth_signature="pUtg1s2qEB0%2BLggi%2FuaaGkGMpoU%3D"', 
         'Cookie': 'guest_id=v1%3A170084276834714652; guest_id_ads=v1%3A170084276834714652; guest_id_marketing=v1%3A170084276834714652; personalization_id="v1_LdPRUHpKtFK6/BMK0+NYkw=="'
       },
     data: data
