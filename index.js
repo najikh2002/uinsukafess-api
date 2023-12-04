@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
 
-    return res.status(200).json({message: `${process.env.guest_id}`});
+    return res.status(200).json({message: "Selamat datang di tweet-post-api"});
 });
 
 app.post('/createpost', async (req, res) => {
